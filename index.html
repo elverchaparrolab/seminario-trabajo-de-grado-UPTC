@@ -35,6 +35,13 @@ h1,h2,h3{font-family:var(--f-display);color:var(--ink);letter-spacing:-.026em;li
 nav.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
 nav.top .wrap{display:flex;gap:6px;align-items:center;justify-content:space-between;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
 nav.top .brand{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+nav.top .utiles{display:flex;align-items:center;gap:8px;margin-left:auto}
+nav.top .volver{font-size:.84rem;color:var(--muted)}
+.idioma{display:flex;align-items:center;border:1px solid var(--line);border-radius:99px;padding:3px}
+nav.top .idioma a{font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--muted);padding:4px 8px;border-radius:99px}
+nav.top .idioma a[aria-current]{background:var(--blue);color:#fff}
+.tema{border:1px solid var(--line);background:none;color:var(--ink);border-radius:99px;width:34px;height:34px;display:grid;place-items:center;cursor:pointer}
+@media (max-width:640px){nav.top .volver{display:none}}
 nav.top ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap}
 nav.top a{display:block;padding:6px 10px;border-radius:99px;text-decoration:none;color:var(--text);font-size:.86rem}
 nav.top a:hover{background:var(--blue-soft);color:var(--blue)}
@@ -110,6 +117,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;font-size:.84rem;col
 <body>
 <nav class="top" aria-label="Secciones"><div class="wrap">
   <span class="brand">Seminario de trabajo de grado · 2026-2</span>
+  <div class="utiles"><a class="volver" href="https://elverchaparrolab.wordpress.com/">← Sitio principal</a><div class="idioma notranslate" translate="no" role="group" aria-label="Idioma"><a data-lang="es" href="https://elverchaparrolab.github.io/seminario-trabajo-de-grado-UPTC/" aria-current="true" title="Español">ES</a><a data-lang="en" href="https://elverchaparrolab-github-io.translate.goog/seminario-trabajo-de-grado-UPTC/?_x_tr_sl=es&amp;_x_tr_tl=en&amp;_x_tr_hl=es" title="English (traducción automática)">EN</a><a data-lang="pt" href="https://elverchaparrolab-github-io.translate.goog/seminario-trabajo-de-grado-UPTC/?_x_tr_sl=es&amp;_x_tr_tl=pt&amp;_x_tr_hl=es" title="Português (tradução automática)">PT</a></div><button class="tema" type="button" id="tema" aria-label="Cambiar entre modo claro y oscuro"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></div>
   <ul>
     <li><a href="#recursos">Recursos</a></li>
     <li><a href="#sistema">Sistema</a></li>
@@ -422,5 +430,6 @@ document.querySelectorAll("[data-doc]").forEach(b=>b.addEventListener("click",as
 openDB().then(x=>{db=x;render()});
 })();
 </script>
+<script>(function(){var O="https://elverchaparrolab.github.io",T="https://elverchaparrolab-github-io.translate.goog",p=location.pathname,cur="es";try{var tl=new URLSearchParams(location.search).get("_x_tr_tl");if(location.hostname.slice(-14)==="translate.goog"&&tl)cur=tl.slice(0,2)}catch(e){}var D={es:O+p,en:T+p+"?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=es",pt:T+p+"?_x_tr_sl=es&_x_tr_tl=pt&_x_tr_hl=es"};document.querySelectorAll(".idioma a[data-lang]").forEach(function(a){var l=a.getAttribute("data-lang");a.href=D[l];if(l===cur)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current");a.addEventListener("click",function(e){e.preventDefault();e.stopPropagation();if(l===cur)return;try{window.top.location.href=D[l]}catch(_){location.href=D[l]}},true)})})();(function(){var r=document.documentElement,K="seminario-tema",t=null;try{t=localStorage.getItem(K)}catch(e){}if(t)r.setAttribute("data-theme",t);var b=document.getElementById("tema");if(b)b.addEventListener("click",function(){var cur=r.getAttribute("data-theme"),osc=cur?cur==="dark":matchMedia("(prefers-color-scheme: dark)").matches;r.setAttribute("data-theme",osc?"light":"dark");try{localStorage.setItem(K,r.getAttribute("data-theme"))}catch(e){}})})();</script>
 </body>
 </html>
